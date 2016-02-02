@@ -5,11 +5,13 @@
   
   <div class="panel-body">
     <% @messages.each do |message| %>
-      <span class="label label-info col-xs-2"><%= message.name %></span>
-      <span class="panel panel-default col-xs-9" style="margin-left:20px;"><%= message.body %></span>
-      (<%= link_to "edit" ,edit_message_path(message) %>
-       <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
-       )
+      <div class="col-xs-12">
+        <span class="label label-info col-xs-2"><%= message.name %></span>
+        <span class="panel panel-default col-xs-1">age:<%= message.age %></span>
+        <span class="panel panel-default col-xs-7" style="margin-left:20px;"><%= message.body %></span>
+      　<%= link_to "編集" ,edit_message_path(message), class: "btn btn-warning" %>
+      　<%= link_to "削除" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-danger" %>  
+      </div>
       <br>
     <% end %>
   </div>
